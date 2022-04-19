@@ -1,0 +1,48 @@
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   host: db
+#   username: postgres
+#   password: hotjambalaya
+#   pool: 5
+
+# development:
+#   <<: *default
+#   database: api_development
+
+# test:
+#   <<: *default
+#   database: api_test
+
+staging:
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV['POSTGRESQL_HOST'] %>
+  username: <%= ENV['POSTGRESQL_USER_NAME'] %>
+  password: <%= ENV['POSTGRESQL_PASSWORD'] %>
+  pool: 5
+  database: <%= ENV['POSTGRESQL_DB'] %>
+
+development:
+  host: localhost
+  port: 5432
+  adapter: postgresql
+  username: postgres
+  password: password
+  database: nft_floor_dev
+# test:
+#   host: localhost
+#   port: 5432
+#   adapter: postgresql
+#   username: postgres
+#   password: password
+#   database: nft_floor_testing
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV['POSTGRESQL_HOST'] %>
+  username: <%= ENV['POSTGRESQL_USER_NAME'] %>
+  password: <%= ENV['POSTGRESQL_PASSWORD'] %>
+  pool: 5
+  database: <%= ENV['POSTGRESQL_DB'] %>
